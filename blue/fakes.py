@@ -7,8 +7,8 @@ import random
 from faker import Faker
 from sqlalchemy.exc import IntegrityError
 
-from bluelog import db
-from bluelog.models import Admin, Category, Post, Comment
+from blue import db
+from blue.models import Admin, Category, Post, Comment
 
 fake = Faker("zh-cn")
 
@@ -69,7 +69,7 @@ def fake_comments(count=500):
         # unreviewed comments
         comment = Comment(
             author=fake.name(),
-            email=fake.email(),
+            #email=fake.email(),
             site=fake.url(),
             body=fake.sentence(),
             timestamp=fake.date_time_this_year(),
@@ -81,7 +81,7 @@ def fake_comments(count=500):
         # from admin
         comment = Comment(
             author='yang',
-            email='yang@example.com',
+            #email='yang@example.com',
             site='example.com',
             body=fake.sentence(),
             timestamp=fake.date_time_this_year(),

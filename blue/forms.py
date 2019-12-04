@@ -8,7 +8,7 @@ from wtforms import StringField, SubmitField, SelectField, TextAreaField, Valida
                     HiddenField, BooleanField, PasswordField
 from wtforms.validators import DataRequired, Length, Optional, URL
 
-from bluelog.models import Category
+from blue.models import Category
 
 
 class LoginForm(FlaskForm):

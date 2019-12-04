@@ -5,10 +5,10 @@
 from flask import render_template, flash, redirect, url_for, request, current_app, Blueprint
 from flask_login import current_user
 
-from bluelog.extensions import db
-from bluelog.forms import CommentForm, AdminCommentForm
-from bluelog.models import Post, Category, Comment
-from bluelog.utils import redirect_back
+from blue.extensions import db
+from blue.forms import CommentForm, AdminCommentForm
+from blue.models import Post, Category, Comment
+from blue.utils import redirect_back
 
 blog_bp = Blueprint('blog', __name__)
 

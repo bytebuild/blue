@@ -10,12 +10,12 @@ from flask_login import current_user
 from flask_sqlalchemy import get_debug_queries
 from flask_wtf.csrf import CSRFError
 
-from bluelog.blueprints.admin import admin_bp
-from bluelog.blueprints.auth import auth_bp
-from bluelog.blueprints.blog import blog_bp
-from bluelog.extensions import bootstrap, db, login_manager, csrf, ckeditor, moment, toolbar, migrate
-from bluelog.models import Admin, Post, Category, Comment
-from bluelog.settings import config
+from blue.blueprints.admin import admin_bp
+from blue.blueprints.auth import auth_bp
+from blue.blueprints.blog import blog_bp
+from blue.extensions import bootstrap, db, login_manager, csrf, ckeditor, moment, toolbar, migrate
+from blue.models import Admin, Post, Category, Comment
+from blue.settings import config
 
 basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
 
@@ -24,7 +24,7 @@ def create_app(config_name=None):
     if config_name is None:
         config_name = os.getenv('FLASK_CONFIG', 'development')
 
-    app = Flask('bluelog')
+    app = Flask('blue')
     app.config.from_object(config[config_name])
 
     register_extensions(app)
@@ -146,7 +146,7 @@ def register_commands(app):
     @click.option('--comment', default=500, help='Quantity of comments, default is 500.')
     def forge(category, post, comment):
         """Generate fake data."""
-        from bluelog.fakes import fake_admin, fake_categories, fake_posts, fake_comments
+        from blue.fakes import fake_admin, fake_categories, fake_posts, fake_comments
 
         db.drop_all()
         db.create_all()
